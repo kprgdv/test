@@ -1,39 +1,26 @@
+'use strict'
 
-var leftBorderWidth = 1;
-let second = 2;
-const pi = 3.14;
+var money = prompt("Ваш бюджет на месяц?");
+var time = prompt("Введите дату в формате YYYY-MM-DD");
 
-console.log(pi);
-
-let persone = {
-    name: "John",
-    age: 25,
-    isMarried: false
+let appData = {
+    budget: money,
+    timeData: time,
+    expenses: {},
+    optionalExpenses: "",
+    income: "",
+    savings: false,
 };
 
-console.log(persone["name"]);
+var q1 = prompt("Введите обязательную статью расходов в этом месяце");
+var howmuch1 = parseFloat (prompt("Во сколько обойдется?"));
+var q2 = prompt("Введите обязательную статью расходов в этом месяце");
+var howmuch2 = parseFloat (prompt("Во сколько обойдется?"));
 
-let arr = ['plum.png', 'orange.jpg', 'apple.bmp'];
+appData.expenses[q1] = howmuch1;
+appData.expenses[q2] = howmuch2;
 
-console.log(arr[0])
+let totalExpenses = howmuch1 + howmuch2;
+let onedaybudget = (appData.budget - totalExpenses) / 30;
 
-//alert('Hello world')
-
-// let answer = confirm("Are you here?");
-
-// console.log(answer);
-
-// let answer = +prompt("Вам есть 18?", "Да");
-
-// console.log(typeof(answer));
-
-// console.log("arr" + " - object");
-
-let incr = 10,
-    decr = 10;
-
-incr++;
-decr--;
-
-console.log(incr);
-console.log(decr);
+alert("Бюджет на 1 день: " + onedaybudget.toFixed(2));
